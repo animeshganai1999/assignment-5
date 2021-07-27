@@ -59,14 +59,15 @@
                 if(r.test(authors[i])){ //if authors name match with regular expression
                     for(var j = 0;j<ba.length;j++){ // traverse through all book
                         if(ba[j].getAttribute("category") == dd_val){ // category match
-                            if(flag == 0){
-                                str += "<hr><b>"+authors[i]+"</b><br>";
-                                flag = 1;
-                            }
+                            
                             var auths = ba[j].getElementsByTagName("author"); //get all the authors of that book
                             for(var k=0;k<auths.length;k++){  // traverse through all the authors of that book
                                 var ath = auths[k].childNodes[0].nodeValue; //each author
                                 if(ath == authors[i]){ // author match then store that book title
+                                    if(flag == 0){
+                                        str += "<hr><b>"+authors[i]+"</b><br>";
+                                        flag = 1;
+                                    }
                                     str += ba[j].getElementsByTagName("title")[0].childNodes[0].nodeValue+"<br>";
                                     break;
                                 }
